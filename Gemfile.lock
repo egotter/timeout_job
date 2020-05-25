@@ -1,0 +1,32 @@
+PATH
+  remote: .
+  specs:
+    timeout_job (0.1.0)
+      sidekiq (> 6.0, < 7.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.2.2)
+    minitest (5.14.1)
+    rack (2.2.2)
+    rack-protection (2.0.8.1)
+      rack
+    rake (12.3.3)
+    redis (4.1.4)
+    sidekiq (6.0.7)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest (~> 5.0)
+  rake (~> 12.0)
+  timeout_job!
+
+BUNDLED WITH
+   2.1.4
