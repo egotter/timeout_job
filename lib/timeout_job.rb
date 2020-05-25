@@ -11,7 +11,7 @@ module TimeoutJob
 
         if timeout?
           logger.info "job execution is timed out. timeout_in=#{worker.timeout_in} args=#{truncate(msg['args'].inspect)}"
-          perform_callback(worker, :after_timeout, args)
+          perform_callback(worker, :after_timeout, msg['args'])
           nil
         else
           result
