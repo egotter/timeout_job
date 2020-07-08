@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    timeout_job (0.1.1)
+    timeout_job (0.1.2)
       sidekiq (> 6.0, < 7.0)
 
 GEM
