@@ -10,7 +10,8 @@ module TimeoutJob
         result = yield_with_timeout(worker.timeout_in, &block)
 
         if timeout?
-          logger.info "job execution is timed out. timeout_in=#{worker.timeout_in} args=#{truncate(msg['args'].inspect)}"
+          logger.info "TimeoutJob: The job of #{worker.class} timed out timeout_in=#{worker.timeout_in} args=#{truncate(msg['args'].inspect)}"
+          logger.info 'TimeoutJob: ' + @error.backtrace.join("\n") if @error
           perform_callback(worker, :after_timeout, msg['args'])
           nil
         else
@@ -28,6 +29,7 @@ module TimeoutJob
       end
     rescue ::Timeout::Error => e
       @timeout = true
+      @error = e
       nil
     end
 
